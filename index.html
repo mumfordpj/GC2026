@@ -297,6 +297,25 @@
   .event-tag.free-tag { background: #FFE9DF; color: #9a3a1f; }
   .event-img { width:100%; border-radius:8px; margin-top:8px; aspect-ratio:16/9; object-fit:cover; display:block; }
 
+  /* Side-by-side option cards (Sunday) */
+  .opt-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    background: #fff; border: 1px solid var(--border); border-top: none;
+    padding: 10px;
+  }
+  .opt-card {
+    font-family: inherit; text-align: left; cursor: pointer;
+    background: var(--gc-sky-lt); border: 2px solid transparent; border-radius: 12px;
+    padding: 10px 10px 11px; color: var(--text);
+    display: flex; flex-direction: column; gap: 3px;
+    transition: border-color .15s, background .15s;
+  }
+  .opt-card.active { background: #fff; border-color: var(--gc-ocean); box-shadow: 0 2px 8px rgba(8,145,178,.15); }
+  .opt-title { font-size: 13px; font-weight: 700; color: var(--gc-ocean-dk); }
+  .opt-meta { font-size: 10px; font-weight: 600; color: var(--gc-coral); }
+  .opt-blurb { font-size: 11px; color: var(--muted); line-height: 1.35; }
+  .opt-list { border-top: 1px solid var(--border); }
+
   /* ── PHOTOS (INSPO) ── */
   .resort-header {
     background: #fff; border-radius: 14px; padding: 14px 16px;
@@ -360,11 +379,11 @@
   <div class="hero-stripe"></div>
   <div class="hero-eyebrow">🏄‍♀️ Gold Coast 2026 · Phil &amp; Narelle</div>
   <div class="hero-title">Bonogin <span>Getaway</span> 🌴</div>
-  <div class="hero-sub">Fri 27 Nov – Mon 30 Nov 2026 · 3 nights</div>
+  <div class="hero-sub">Thu 26 Nov – Mon 30 Nov 2026 · 4 nights</div>
 
   <div class="flight-bar">
     <div class="flight-bar-icon">✈️</div>
-    <div class="flight-bar-text">JQ803 · Adelaide → Brisbane<br>Departs 3:40pm ACDT · Fri 27 Nov 2026</div>
+    <div class="flight-bar-text">Narelle · JQ801 · Thu 26 Nov · 10:55am ACDT<br>Phil · JQ803 · Fri 27 Nov · 3:40pm ACDT</div>
     <div class="flight-bar-num">2h 30m</div>
   </div>
 
@@ -377,7 +396,7 @@
     <div class="cd-sep">:</div>
     <div class="cd-unit"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">sec</div></div>
   </div>
-  <div class="cd-depart" id="cd-label">Until departure · JQ803</div>
+  <div class="cd-depart" id="cd-label">Until Narelle's JQ801 departs · Phil follows Friday</div>
 </div>
 
 <!-- NAV -->
@@ -476,7 +495,7 @@
     <a class="quick-card" href="https://www.google.com/maps/search/?api=1&query=Bargain+Car+Rentals+Brisbane+Airport" target="_blank">
       <div class="quick-icon">🚗</div>
       <div class="quick-title">Bargain Rentals</div>
-      <div class="quick-sub">MG3, Brisbane Airport</div>
+      <div class="quick-sub">MG3 · Hendra depot</div>
     </a>
     <a class="quick-card" href="https://www.google.com/maps/search/?api=1&query=Hunt+Cafe+Bonogin" target="_blank">
       <div class="quick-icon">☕</div>
@@ -492,7 +511,7 @@
   </div>
   <div class="tip-card">
     <div class="tip-title">🚗 Bonogin is well-placed</div>
-    <div class="tip-text">~20-25 min to Burleigh/Tallebudgera beaches, ~40 min to Tamborine Mountain. Brisbane Airport is the long leg — allow 70-100 min plus the rental shuttle.</div>
+    <div class="tip-text">~20-25 min to Burleigh/Tallebudgera beaches, ~40 min to Tamborine Mountain. Brisbane Airport is the long leg — allow 70-100 min each way.</div>
   </div>
   <div class="tip-card">
     <div class="tip-title">🐊 Swimming spots</div>
@@ -516,7 +535,25 @@
     <div class="flight-route">
       <div class="flight-airport"><div class="flight-iata">ADL</div><div class="flight-city">Adelaide</div></div>
       <div class="flight-mid">
-        <div class="flight-num">JQ803 · Jetstar</div>
+        <div class="flight-num">JQ801 · Jetstar · Narelle</div>
+        <div class="flight-line">─── ✈️ ───</div>
+        <div class="flight-duration">2h 30m · non-stop · Airbus A320-200</div>
+      </div>
+      <div class="flight-airport"><div class="flight-iata">BNE</div><div class="flight-city">Brisbane</div></div>
+    </div>
+    <div class="flight-times">
+      <div class="flight-time-block"><div class="flight-time-val">10:55am</div><div class="flight-time-label">Depart ACDT</div></div>
+      <div class="flight-time-block" style="color: var(--gc-lagoon); font-size:20px">→</div>
+      <div class="flight-time-block"><div class="flight-time-val">12:55pm</div><div class="flight-time-label">Arrive AEST</div></div>
+    </div>
+    <div class="flight-date">Thursday 26 November 2026 · Domestic terminal</div>
+  </div>
+
+  <div class="flight-card">
+    <div class="flight-route">
+      <div class="flight-airport"><div class="flight-iata">ADL</div><div class="flight-city">Adelaide</div></div>
+      <div class="flight-mid">
+        <div class="flight-num">JQ803 · Jetstar · Phil</div>
         <div class="flight-line">─── ✈️ ───</div>
         <div class="flight-duration">2h 30m · non-stop · Airbus A320</div>
       </div>
@@ -579,7 +616,7 @@
       <div class="info-icon">🕕</div>
       <div>
         <div class="info-label">Pickup</div>
-        <div class="info-val">Fri 27 Nov, 6:00pm — 22 Serpentine Rd, Hendra</div>
+        <div class="info-val">Thu 26 Nov, afternoon (Narelle) — 22 Serpentine Rd, Hendra<br><span class="event-tag free-tag">Booking still shows Fri 6pm · Phil — change with QEEQ</span></div>
       </div>
     </div>
     <div class="info-row">
@@ -619,7 +656,7 @@
       <div class="info-icon">🏡</div>
       <div>
         <div class="info-label">Room For A Pony — Little House</div>
-        <div class="info-val">147 Glenmore Dr, Bonogin QLD 4213 · Host: Ariana (Superhost)</div>
+        <div class="info-val">147 Glenmore Dr, Bonogin QLD 4213 · Host: Ariana (Superhost)<br><span class="event-tag free-tag">Narelle checks in Thu 26 Nov — confirm the dates cover Thursday night</span></div>
       </div>
     </div>
     <div class="info-row">
@@ -658,7 +695,7 @@
       <div class="info-icon">📅</div>
       <div>
         <div class="info-label">Schedule</div>
-        <div class="info-val">TBC — expect 1-2 hrs each Sat &amp; Sun</div>
+        <div class="info-val">Fri 27 Nov — 9:42am &amp; 10:39am · Sat 28 Nov — 11:26am (~5 min) · Sun 29 Nov — no cheer, free day</div>
       </div>
     </div>
     <div class="info-row">
@@ -715,7 +752,7 @@
 
 <script>
 /* ---------- COUNTDOWN ---------- */
-const DEPART = new Date('2026-11-27T15:40:00+10:30');
+const DEPART = new Date('2026-11-26T10:55:00+10:30'); // Narelle's JQ801 — first flight out
 function tick() {
   const diff = DEPART - Date.now();
   const label = document.getElementById('cd-label');
@@ -755,29 +792,64 @@ if (isStandalone) {
 
 /* ---------- ITINERARY DATA ---------- */
 const itinerary = [
-  { label:"Day 1 · Friday 27 November", sub:"Travel day ✈️ Adelaide → Brisbane → Bonogin", cls:"sky", events:[
-    {time:"3:40pm", dot:"navy", name:"JQ803 departs Adelaide ✈️", tag:"Adelaide Domestic Terminal"},
-    {time:"5:40pm", dot:"", name:"Arrive Brisbane Airport", tag:"2h 30m flight"},
-    {time:"6:00pm", dot:"navy", name:"Collect the MG3 — Bargain Rentals 🚗", tag:"Free shuttle from terminal to Hendra depot"},
-    {time:"6:15-8pm", dot:"", name:"Drive to Bonogin", tag:"~70-100 min via the M1, arriving after dark"},
-    {time:"Evening", dot:"coral", name:"Dinner + settle in", tag:"Grab something in Robina or Mudgeeraba on the way through"}
+  { label:"Day 1 · Thursday 26 November", sub:"Narelle flies up ✈️ and picks up the car", cls:"sky", events:[
+    {time:"10:55am", dot:"navy", name:"JQ801 departs Adelaide ✈️", tag:"Narelle · Adelaide Domestic Terminal"},
+    {time:"12:55pm", dot:"", name:"Arrive Brisbane Airport", tag:"2h 30m flight · Domestic terminal"},
+    {time:"~1:30pm", dot:"navy", name:"Call the Bargain shuttle 🚌", tag:"+61 3 6165 0838, press 1 · Domestic Terminal: escalators to the sky bridge, exit right under 'Buses & Coaches A&B', Bus Zone B1/B2"},
+    {time:"~2:00pm", dot:"navy", name:"Collect the MG3 — Hendra depot 🚗", tag:"22 Serpentine Rd, Hendra · open until 9pm · driver must be on the booking"},
+    {time:"~2:30pm", dot:"", name:"Drive to Bonogin", tag:"~70-100 min via the M1 · Thursday afternoon traffic out of Brisbane can be slow"},
+    {time:"~4:00pm", dot:"coral", name:"Check in & settle at the Airbnb 🏡", tag:"Pool, patio and the Border Collie puppy"},
+    {time:"Evening", dot:"coral", name:"Dinner nearby 🍽️", tag:"Robina or Mudgeeraba — walk-in friendly"}
   ]},
-  { label:"Day 2 · Saturday 28 November", sub:"Cheer comp & beach", cls:"", events:[
-    {time:"Morning", dot:"", name:"Coffee near Broadbeach", tag:"Walking distance to GCCEC"},
-    {time:"Morning", dot:"coral", name:"Cheer comp session — GCCEC", tag:"Flexible until schedule drops"},
-    {time:"Afternoon", dot:"gold", name:"Beach time, Kurrawa/Broadbeach 🏖️", tag:"5-min walk from the venue"},
-    {time:"Late arvo", dot:"", name:"Pacific Fair / The Oracle", tag:"Air-con backup if it's a scorcher"},
-    {time:"Evening", dot:"coral", name:"Sunset at Elephant Rock, Currumbin 🌅", tag:"~20 min south, rock-pool swimming"}
+  { label:"Day 2 · Friday 27 November", sub:"Cheer morning 🎀, then Phil flies in ✈️", cls:"coral", events:[
+    {time:"8:00am", dot:"", name:"Coffee at The Hunt Cafe, Bonogin ☕", tag:"Narelle"},
+    {time:"~8:45am", dot:"navy", name:"Drive to Broadbeach", tag:"~30 min · allow a few more for parking and the walk in"},
+    {time:"9:42am", dot:"coral", name:"Cheer — first session, GCCEC 🎀", tag:"Gold Coast Convention Centre, Broadbeach · there to watch"},
+    {time:"10:39am", dot:"coral", name:"Cheer — second session, GCCEC 🎀", tag:"Under an hour later — coffee in Broadbeach in between"},
+    {time:"~11:30am", dot:"", name:"Brunch in Broadbeach 🍽️", tag:"Victoria Ave / Surf Parade — plenty of walk-in options"},
+    {time:"~12:30pm", dot:"gold", name:"Kurrawa / Broadbeach Beach 🏖️", tag:"5-min walk from the venue · swim between the flags"},
+    {time:"3:40pm", dot:"navy", name:"JQ803 departs Adelaide ✈️", tag:"Phil · carry-on only, so no baggage wait on arrival"},
+    {time:"~4:00pm", dot:"navy", name:"Leave Broadbeach for Brisbane Airport 🚗", tag:"Allow 70-100 min · Friday afternoon traffic can be heavy"},
+    {time:"5:40pm", dot:"", name:"JQ803 lands Brisbane", tag:"Meet at the Domestic Terminal pick-up"},
+    {time:"~6:15pm", dot:"navy", name:"Drive back to Bonogin", tag:"~70-100 min via the M1"},
+    {time:"Evening", dot:"coral", name:"Dinner on the way through 🍽️", tag:"Robina or Mudgeeraba — walk-in friendly"}
   ]},
-  { label:"Day 3 · Sunday 29 November", sub:"Comp, then Tamborine Mountain", cls:"coral", events:[
-    {time:"Morning", dot:"", name:"Coffee, Broadbeach/Mermaid", tag:""},
-    {time:"Morning", dot:"coral", name:"Cheer comp session — GCCEC", tag:"Likely final session"},
-    {time:"Early arvo", dot:"", name:"Drive to Tamborine Mountain", tag:"~40 min via the M1"},
-    {time:"Afternoon", dot:"navy", name:"Curtis Falls walk 🌿", tag:"Easy 1.2km return rainforest walk, no permit needed", img:"https://images.unsplash.com/photo-1544519954-6aeb4816f0ab?w=600&q=70&auto=format&fit=crop"},
-    {time:"Late arvo", dot:"gold", name:"Gallery Walk + tasting 🍷", tag:"Witches Falls Winery or Cedar Creek Estate"}
+  { label:"Day 3 · Saturday 28 November", sub:"Cheer at 11:26am, then Tamborine Mountain", cls:"coral", events:[
+    {time:"8:00am", dot:"", name:"Coffee at The Hunt Cafe, Bonogin ☕", tag:"Easy start, no rush"},
+    {time:"~9:00am", dot:"gold", name:"Slow morning at the Airbnb 🏊", tag:"Pool, patio, and a wander around the paddocks"},
+    {time:"~10:15am", dot:"navy", name:"Drive to Broadbeach", tag:"~30 min · aim to be there a little before the routine"},
+    {time:"11:26am", dot:"coral", name:"Cheer routine — GCCEC 🎀", tag:"~5 min on the mat · Gold Coast Convention Centre"},
+    {time:"~12:15pm", dot:"", name:"Lunch in Broadbeach", tag:"Victoria Ave / Surf Parade — plenty of walk-in options"},
+    {time:"~1:15pm", dot:"navy", name:"Drive to Tamborine Mountain", tag:"~40 min inland"},
+    {time:"~2:00pm", dot:"navy", name:"Curtis Falls walk 🌿", tag:"Easy 1.2km return rainforest walk, no permit needed", img:"https://images.unsplash.com/photo-1544519954-6aeb4816f0ab?w=600&q=70&auto=format&fit=crop"},
+    {time:"~3:00pm", dot:"gold", name:"Gallery Walk + tasting 🍷", tag:"Shops are indoors — handy if a storm rolls in"},
+    {time:"~5:00pm", dot:"", name:"Head back to Bonogin", tag:"Dinner nearby — Mudgeeraba or Robina"}
   ]},
-  { label:"Day 4 · Monday 30 November", sub:"Homeward bound ✈️", cls:"sky", events:[
-    {time:"Morning", dot:"", name:"Pack up, last coffee", tag:"Short window — check out and go"},
+  { label:"Day 4 · Sunday 29 November", sub:"Free day — pick your adventure 🏖️", cls:"", options:[
+    { key:"a", title:"🏖️ Local coast", meta:"~25 min drive", blurb:"Burleigh, Tallebudgera & Elephant Rock", events:[
+      {time:"7:30am", dot:"", name:"Coffee at The Hunt Cafe, Bonogin ☕", tag:"Slow start"},
+      {time:"8:30am", dot:"navy", name:"Drive to Burleigh Heads", tag:"~25 min from Bonogin · get there early for parking"},
+      {time:"9:00am", dot:"gold", name:"Burleigh Beach — morning swim & sun 🏖️", tag:"Patrolled beach · swim between the flags · SPF 50+, reapply after swims"},
+      {time:"12:30pm", dot:"", name:"Lunch at Burleigh 🍽️", tag:"James St strip and the beachfront — plenty of walk-in options"},
+      {time:"~1:30pm", dot:"", name:"Tallebudgera Creek — calm swim 🛶", tag:"Sheltered and shaded, a good option when the midday sun is harsh"},
+      {time:"~4:00pm", dot:"navy", name:"Burleigh Head National Park walk 🌴", tag:"Short coastal headland walk with ocean views, no booking needed"},
+      {time:"~6:00pm", dot:"coral", name:"Sunset at Elephant Rock, Currumbin 🌅", tag:"Rock-pool swimming and a great sunset spot"},
+      {time:"Evening", dot:"coral", name:"Last-night dinner 🍷", tag:"Burleigh or Currumbin — walk-in friendly"}
+    ]},
+    { key:"b", title:"🌊 Byron Bay", meta:"~1h 20-1h 30 each way", blurb:"Lighthouse walk, Wategos & town", events:[
+      {time:"7:45am", dot:"", name:"Coffee at The Hunt Cafe, then hit the road ☕", tag:"~1h 20-1h 30 to Byron via the M1"},
+      {time:"~9:15am", dot:"navy", name:"Arrive Byron Bay — park at Clarkes Beach", tag:"Free, time-limited · lighthouse car park is $10/day and fills early · Byron is 1 hr ahead (NSW daylight saving)"},
+      {time:"~9:30am", dot:"navy", name:"Cape Byron Walking Track 🌿", tag:"3.7km loop · 90 min-2 hrs · Clarkes → lighthouse → Wategos"},
+      {time:"~11:30am", dot:"gold", name:"Wategos Beach swim 🏖️", tag:"Sheltered headland beach, great for swimming · SPF 50+"},
+      {time:"~1:00pm", dot:"", name:"Lunch in Byron town 🍽️", tag:"Plenty of walk-in cafes · browse the boutiques and surf shops"},
+      {time:"~2:30pm", dot:"gold", name:"Main Beach & town 🌊", tag:"Beach walk, a dip or a wander — unhurried"},
+      {time:"~4:30pm", dot:"navy", name:"Head home via Currumbin", tag:"Stop for sunset on the way back"},
+      {time:"~6:00pm", dot:"coral", name:"Sunset at Elephant Rock, Currumbin 🌅", tag:"Rock-pool swimming and a great sunset spot"},
+      {time:"Evening", dot:"coral", name:"Last-night dinner 🍷", tag:"Burleigh or Currumbin — walk-in friendly"}
+    ]}
+  ]},
+  { label:"Day 5 · Monday 30 November", sub:"Homeward bound ✈️", cls:"sky", events:[
+    {time:"Morning", dot:"", name:"Pack up, last coffee at The Hunt Cafe ☕", tag:"Short window — check out and go"},
     {time:"~11:15am", dot:"navy", name:"Drive to Brisbane Airport", tag:"Allow the full 70-100 min plus buffer"},
     {time:"1:00pm", dot:"navy", name:"Return the MG3 — Bargain Rentals 🚗", tag:"Hendra depot, ~20 min shuttle back to terminal"},
     {time:"3:05pm", dot:"navy", name:"VA958 departs Brisbane ✈️", tag:"1h 35m to Sydney"},
@@ -786,30 +858,55 @@ const itinerary = [
   ]}
 ];
 
+function renderEvents(events){
+  return events.map(ev => {
+    const tagHtml = ev.tag ? `<span class="event-tag">${ev.tag}</span>` : '';
+    const imgHtml = ev.img ? `<img class="event-img" src="${ev.img}" alt="${ev.name}">` : '';
+    return `
+      <div class="event-item">
+        <div class="event-time">${ev.time}</div>
+        <div class="event-dot ${ev.dot||''}"></div>
+        <div><div class="event-name">${ev.name}</div>${tagHtml}${imgHtml}</div>
+      </div>`;
+  }).join('');
+}
+
 function buildItinerary(){
   const container = document.getElementById('itin-days');
-  itinerary.forEach(day => {
+  itinerary.forEach((day, di) => {
     const block = document.createElement('div');
     block.className = 'day-block';
-    let eventsHtml = '';
-    day.events.forEach(ev => {
-      const tagHtml = ev.tag ? `<span class="event-tag">${ev.tag}</span>` : '';
-      const imgHtml = ev.img ? `<img class="event-img" src="${ev.img}" alt="${ev.name}">` : '';
-      eventsHtml += `
-        <div class="event-item">
-          <div class="event-time">${ev.time}</div>
-          <div class="event-dot ${ev.dot||''}"></div>
-          <div><div class="event-name">${ev.name}</div>${tagHtml}${imgHtml}</div>
-        </div>`;
-    });
-    block.innerHTML = `
+    const header = `
       <div class="day-header ${day.cls}">
         <div class="day-num">${day.label}</div>
         ${day.sub}
-      </div>
-      <div class="event-list">${eventsHtml}</div>`;
+      </div>`;
+
+    if (day.options) {
+      // Side-by-side option cards that also act as the toggle
+      const cards = day.options.map((o, oi) => `
+        <button class="opt-card ${oi===0?'active':''}" id="opt-${di}-${oi}" onclick="selectOption(${di},${oi})">
+          <div class="opt-title">${o.title}</div>
+          <div class="opt-meta">${o.meta}</div>
+          <div class="opt-blurb">${o.blurb}</div>
+        </button>`).join('');
+      block.innerHTML = `
+        ${header}
+        <div class="opt-grid">${cards}</div>
+        <div class="event-list opt-list" id="opt-list-${di}">${renderEvents(day.options[0].events)}</div>`;
+    } else {
+      block.innerHTML = `${header}<div class="event-list">${renderEvents(day.events)}</div>`;
+    }
     container.appendChild(block);
   });
+}
+
+function selectOption(di, oi) {
+  const day = itinerary[di];
+  day.options.forEach((_, i) => {
+    document.getElementById(`opt-${di}-${i}`).classList.toggle('active', i === oi);
+  });
+  document.getElementById(`opt-list-${di}`).innerHTML = renderEvents(day.options[oi].events);
 }
 buildItinerary();
 
